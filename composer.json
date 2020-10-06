@@ -1,0 +1,27 @@
+{
+    "name": "ohid/mountain-conqueror",
+    "description": "A simply marvelous WordPress theme for your blog",
+    "type": "wordpress-theme",
+    "license": "GPL-2.0",
+    "minimum-stability": "stable",
+    "keywords": [
+        "wordpress",
+        "bootstrap",
+        "theme",
+        "blog"
+    ],
+    "authors": [
+        {
+            "name": "ohid",
+            "email": "ohidul.islam951@gmail.com"
+        }
+    ],
+	"homepage": "https://github.com/ohid/mountain-conqueror",
+	"require": {
+		"composer/installers": "^1.9",
+		"php": ">=7.0"
+	},
+    "require-dev": {
+        "inpsyde/php-coding-standards": "^0.13.4"
+    }
+}
