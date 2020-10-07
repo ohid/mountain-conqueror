@@ -28,5 +28,31 @@ defined( 'ABSPATH' ) || exit;
 
 <body <?php body_class(); ?> id="top">
 
-<!-- Start <div class="site-wrapper"> -->
-<div class="site-wrapper">
+    <!-- Start <div class="site-wrapper"> -->
+    <div class="site-wrapper">
+        
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <?php
+                                printf(
+                                    '<a href="%s"><img src="%s" alt="%s"></a>',
+                                    esc_url(home_url('/')),
+                                    get_template_directory_uri() . '/assets/img/logo.png',
+                                    get_bloginfo('title')
+                                );
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="site-tagline">
+                            <h1><?php echo esc_html(get_bloginfo('description')); ?></h1>
+
+                            <h3><?php echo esc_html(get_bloginfo('title')); ?></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
