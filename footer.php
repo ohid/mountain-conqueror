@@ -9,6 +9,11 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
+                </div>
+            </div>
+        </section>
+        <!-- Ending of <section class="main"> -->
+
         <footer class="site-footer">
             <div class="container">
                 <div class="row">

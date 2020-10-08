@@ -56,3 +56,9 @@ defined( 'ABSPATH' ) || exit;
                 </div>
             </div>
         </header>
+
+
+        <!-- Beginning of <section class="main"> -->
+        <section class="main">
+            <div class="container">
+                <div class="row">
