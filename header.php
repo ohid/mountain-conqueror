@@ -50,7 +50,7 @@ defined( 'ABSPATH' ) || exit;
                         <div class="site-tagline">
                             <h1><?php echo esc_html(get_bloginfo('description')); ?></h1>
 
-                            <h3><?php echo esc_html(get_bloginfo('title')); ?></h3>
+                            <h4><?php echo esc_html(get_bloginfo('title')); ?></h4>
                         </div>
                     </div>
                 </div>
