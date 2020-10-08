@@ -165,51 +165,89 @@ add_filter('excerpt_more', 'mconqueror_excerpt_more');
 /**
  * Add CSS classes to posts
  */
-if( ! function_exists( 'mconqueror_post_class') ) {
-	add_filter('post_class', 'mconqueror_post_class');
+if (! function_exists('mconqueror_post_class')) {
+    add_filter('post_class', 'mconqueror_post_class');
 
-	function mconqueror_post_class( $classes ) {
-
-		$classes[] = 'mconqueror-article';
+    function mconqueror_post_class(array $classes) : array
+    {
+        $classes[] = 'mconqueror-article';
         $classes[] = 'clearfix';
 
-		return $classes;
-	}
+        return $classes;
+    }
 }
 
+if (! function_exists('mconqueror_link_to_menu_editor')) {
 
-/**
- * Menu fallback. Link to the menu editor if that is useful.
- *
- * @param  array $args
- * @return string
- */
-function mconqueror_link_to_menu_editor( $args )
-{
-    if ( ! current_user_can( 'manage_options' ) ) {
-        return;
+    /**
+     * Menu fallback. Link to the menu editor if that is useful.
+     *
+     * @param  array $args
+     * @return string
+     */
+    function mconqueror_link_to_menu_editor(array $args)
+    {
+        if (! current_user_can('manage_options')) {
+            return;
+        }
+
+        // see wp-includes/nav-menu-template.php for available arguments
+        extract($args);
+
+        $link = $link_before;
+
+        $link .= sprintf(
+            '<a href="%s" class="create-menu">%s</a>',
+            esc_url(admin_url('nav-menus.php')),
+            esc_attr($before) . esc_attr__('Create a menu', 'mountain-conqueror') . esc_attr($after)
+        );
+                
+        $link .= $link_after;
+
+        // We have a list
+        if (false !== stripos($items_wrap, '<ul')
+            or false !== stripos($items_wrap, '<ol')
+        ) {
+            $link = sprintf('<li>%s</li>', $link);
+        }
+
+        $output = sprintf($items_wrap, $menu_id, $menu_class, $link);
+        if (! empty($container)) {
+            $output = sprintf(
+                "<%s>%s</%s>",
+                esc_attr($container),
+                $output,
+                esc_attr($container)
+            );
+            // $output  = "<". esc_attr($container) ." class='". esc_attr($container_class) ."' id='". esc_attr($container_id) ."'>$output</". esc_attr($container) .">";
+        }
+
+        if ($echo) {
+            echo wp_specialchars_decode(esc_html($output), ENT_QUOTES);
+        }
+
+        return $output;
     }
+}
 
-    // see wp-includes/nav-menu-template.php for available arguments
-    extract( $args );
+if (! function_exists('mconqueror_posts_navigation')) {
 
-    $link = $link_before . '<a href="' . esc_url(admin_url('nav-menus.php')) . '" class="create-menu">' . esc_attr($before) . esc_attr__('Create a menu', 'mountain-conqueror') . esc_attr($after) . '</a>' . $link_after;
+    /**
+     * Display the posts navigation
+     *
+     * @return void
+     */
+    function mconqueror_posts_navigation() : string
+    {
+        $output = '<div class="mconqueror-pagination">';
+            $output .= get_the_posts_pagination(array(
+                'screen_reader_text' => ' ',
+                'mid_size' => 2,
+                'prev_text' => __('Older posts', 'mountain-conqueror'),
+                'next_text' => __('Newer posts', 'mountain-conqueror'),
+            ));
+        $output . '</div>';
 
-    // We have a list
-    if (false !== stripos($items_wrap, '<ul')
-        or false !== stripos($items_wrap, '<ol')
-    ) {
-        $link = "<li>" . $link ."</li>";
+        return $output;
     }
-
-    $output = sprintf($items_wrap, $menu_id, $menu_class, $link);
-    if (! empty($container)) {
-        $output  = "<". esc_attr($container) ." class='". esc_attr($container_class) ."' id='". esc_attr($container_id) ."'>$output</". esc_attr($container) .">";
-    }
-
-    if ($echo) {
-        echo wp_specialchars_decode(esc_html($output), ENT_QUOTES);
-    }
-
-    return $output;
 }
