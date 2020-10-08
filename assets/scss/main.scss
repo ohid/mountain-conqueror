@@ -1,10 +1,106 @@
 /***
-==== General Styles
+==== Breakpoints
 ***/
 
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+
+/***
+==== Mixins
+***/
+
+// Small devices
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+ }
+ 
+ // Medium devices
+ @mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+ }
+ 
+ // Large devices
+ @mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+ 
+ // Extra large devices
+ @mixin xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+ }
+
+/***
+==== General Styles
+***/
 body {
-    font-family: 'Sanchez', serif;
-    background: transparent url('../img/bg.jpg') 0% 0% no-repeat padding-box;
+    font-family: 'Sanchez',serif;
+    background-image: url(../img/bg.jpg);
+    background-position: 0px 30px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Teko', sans-serif;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 1.7;
+}
+
+h2 {
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+h3 {
+    font-size: 30px;
+    line-height: 1.4;
+}
+
+h4 {
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+h5 {
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+h6 {
+    font-size: 19px;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 19px;
+    margin-bottom: 20px;
 }
 
 img {
@@ -13,24 +109,176 @@ img {
     height: auto;
 }
 
+a:hover, 
+a:active {
+    text-decoration: underline;
+}
+
 /***
 ==== Header
 ***/
-
 header {
     margin-top: 55px;
 
+    @include lg {
+        .logo {
+            max-width: 250px;
+        }
+    }
+
     .logo img {
-        max-width: 100%;;
+        max-width: 100%;
     }
 
     .site-tagline {
         margin-top: 45px;
         text-align: center;
-    }
 
-    .site-tagline h1 {
-        font-family: 'IM Fell English', serif;
+        h1 {
+            font-family: 'IM Fell English',serif;
+            font-size: 42px;
+            margin-bottom: 0;
+            transform: translateX(30px);
+            line-height: 1;
+
+            &:before {
+                content: '\00BB'
+            }
+    
+            &:after {
+                content: '\00AB'
+            }
+        }
+
+        h4 {
+            font-family: 'IM Fell English',serif;
+            font-size: 24px;
+            transform: translateX(30px);
+        }
     }
 }
+
+/***
+==== Blog homepage /index.php styles
+***/
+section.main {
+    margin-top: 95px;
+}
+
+.side-menu {
+    ul {
+        max-width: 250px;
+        padding-left: 0;
+
+        li {
+            background-color: #0f1e2d;
+            min-height: 50px;
+            list-style: none;
+            text-align: center;
+            padding: 0 15px;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+
+            &.current-menu-item, 
+            &.current-menu-ancestor, 
+            &.current-menu-parent {
+                background-color: #9F3636;
+            }
+
+            &.menu-item-has-children {
+                position: relative;
+
+                > ul.sub-menu {
+                    position: absolute;
+                    left: 250px;
+                    width: 100%;
+                    z-index: 9;
+                    top: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    background-color: #0f1e2d;
+                }
+
+                ul.sub-menu li {
+                    border-bottom: 1px solid #fff;
+                    margin-bottom: 0;
+                    padding: 10px;
+                }
+
+                ul.sub-menu li a {
+                    line-height: 30px;
+                }
+
+                &:hover > ul.sub-menu {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            a{
+                color: #fff;
+                font-size: 20px;
+                text-transform: uppercase;
+                line-height: 50px;
+            }
+        }
+    }
+}
+
+.entry-content {
+    padding-left: 15px;
+
+    article {
+        padding-bottom: 20px;
+        margin-bottom: 65px;
+        border-bottom: 1px solid #0F1E2D;
+
+        .post-content {
+            width: 68%;
+            padding-right: 30px;
+            box-sizing: border-box;
+            float: left;
+
+            .post-meta {
+                font-style: italic;
+            }
             
+            .post-meta .meta-category {
+                text-transform: uppercase;
+            }
+    
+    
+            .post-meta a {
+                font-size: 16px;
+                color: #000000;
+            }
+    
+            .post-meta .meta:not(:last-child):after {
+                content: '>';
+            }
+    
+            .post-title {
+                font-size: 50px;
+                font-weight: 400;
+            }
+        }
+    
+        .post-thumbnail {
+            float: left;
+            width: 32%;
+            margin-bottom: 50px;
+
+            img {
+                border-radius: 100%;
+                width: 100%;
+            }
+        }
+
+        p a {
+            color: #9F3636
+        }
+    }
+
+}
