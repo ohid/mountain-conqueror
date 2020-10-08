@@ -1,0 +1,41 @@
+footer {
+    &.site-footer {
+        background-color: #0f1e2dd4;
+        height: 90px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: #fff;
+        line-height: 90px;
+
+        a {
+            font-size: 19px;
+            color: #fff;
+        }
+
+        span {
+            font-size: 19px;
+        }
+
+        .footer-copyright {
+            margin-right: 35px;
+        }
+
+        .footer-socials {
+            margin-right: 35px;
+
+            span.social-list {
+                margin-left: 15px;
+            }
+
+            a {
+                margin-right: 15px;
+
+                &:hover i{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

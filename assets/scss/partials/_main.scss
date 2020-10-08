@@ -1,0 +1,70 @@
+/***
+==== Blog homepage /index.php styles
+***/
+section {
+    &.main {
+        margin: 95px 0 160px;
+    }
+}
+
+.side-menu {
+    ul {
+        max-width: 250px;
+        padding-left: 0;
+
+        li {
+            background-color: #0f1e2d;
+            min-height: 50px;
+            list-style: none;
+            text-align: center;
+            padding: 0 15px;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+
+            &.current-menu-item, 
+            &.current-menu-ancestor, 
+            &.current-menu-parent {
+                background-color: #9F3636;
+            }
+
+            &.menu-item-has-children {
+                position: relative;
+
+                > ul.sub-menu {
+                    position: absolute;
+                    left: 250px;
+                    width: 100%;
+                    z-index: 9;
+                    top: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    background-color: #0f1e2d;
+                }
+
+                ul.sub-menu li {
+                    border-bottom: 1px solid #fff;
+                    margin-bottom: 0;
+                    padding: 10px;
+                }
+
+                ul.sub-menu li a {
+                    line-height: 30px;
+                }
+
+                &:hover > ul.sub-menu {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            a{
+                color: #fff;
+                font-size: 20px;
+                text-transform: uppercase;
+                line-height: 50px;
+            }
+        }
+    }
+}

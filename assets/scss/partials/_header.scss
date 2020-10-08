@@ -1,0 +1,43 @@
+/***
+==== Header
+***/
+header {
+    margin-top: 55px;
+
+    @include lg {
+        .logo {
+            max-width: 250px;
+        }
+    }
+
+    .logo img {
+        max-width: 100%;
+    }
+
+    .site-tagline {
+        margin-top: 45px;
+        text-align: center;
+
+        h1 {
+            font-family: 'IM Fell English',serif;
+            font-size: 42px;
+            margin-bottom: 0;
+            transform: translateX(30px);
+            line-height: 1;
+
+            &:before {
+                content: '\00BB'
+            }
+    
+            &:after {
+                content: '\00AB'
+            }
+        }
+
+        h4 {
+            font-family: 'IM Fell English',serif;
+            font-size: 24px;
+            transform: translateX(30px);
+        }
+    }
+}
