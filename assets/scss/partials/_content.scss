@@ -38,6 +38,11 @@
                 font-size: 50px;
                 font-weight: 400;
             }
+
+            .wp-caption,
+            .img {
+                max-width: 100%;
+            }
         }
 
         &.has-post-thumbnail .post-content {
@@ -74,4 +79,8 @@
             background-color: #9F3636;
         }
     }
+}
+
+body.single .entry-content article .post-content {
+    width: 100%;
 }
