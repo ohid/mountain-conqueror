@@ -50,15 +50,15 @@ if (! function_exists('mconqueror_setup')) {
 
         add_theme_support('align-wide');
 
-        add_image_size('marvelous-post-img-small', 370, 235, true);
-        add_image_size('marvelous-post-img-medium', 555, 350, true);
-        add_image_size('marvelous-post-img-large', 1140, 600, true);
-        add_image_size('marvelous-service-img-large', 1140, 600, true);
-        add_image_size('marvelous-blog-thumb', 110, 80, true);
-        add_image_size('marvelous-blog-widget-thumb', 55, 55, true);
+        add_image_size('mconqueror-post-img-small', 370, 235, true);
+        add_image_size('mconqueror-post-img-medium', 555, 350, true);
+        add_image_size('mconqueror-post-img-large', 1140, 600, true);
+        add_image_size('mconqueror-service-img-large', 1140, 600, true);
+        add_image_size('mconqueror-blog-thumb', 110, 80, true);
+        add_image_size('mconqueror-blog-widget-thumb', 55, 55, true);
 
         $defaults = [
-            'default-color'     => '#f8f8f8',
+            'default-color' => '#f8f8f8',
         ];
 
         add_theme_support('custom-background', $defaults);
@@ -70,8 +70,8 @@ if (! function_exists('mconqueror_setup')) {
 
         if (function_exists('register_nav_menus')) {
             register_nav_menus([
-                'main-menu' => esc_html__('Main Menu', 'marvelous'),
-                'mobile-menu' => esc_html__('Mobile Menu', 'marvelous'),
+                'main-menu' => esc_html__('Main Menu', 'mountain-conqueror'),
+                'mobile-menu' => esc_html__('Mobile Menu', 'mountain-conqueror'),
             ]);
         }
     }
@@ -100,7 +100,6 @@ if (! function_exists('mconqueror_filemtime')) {
         if (file_exists(get_template_directory() . $file)) {
             return $theme_version . '.' . filemtime(wp_normalize_path(get_template_directory() . $file));
         }
-
     }
 }
 
@@ -139,8 +138,8 @@ if (! function_exists('mconqueror_google_fonts_url')) {
             }
 
             $query_args = [
-                'family' => urlencode(implode('|', $font_families)),
-                'subset' => urlencode('latin,latin-ext'),
+                'family' => rawurlencode(implode('|', $font_families)),
+                'subset' => rawurlencode('latin,latin-ext'),
                 'display' => 'swap',
             ];
 
@@ -149,4 +148,68 @@ if (! function_exists('mconqueror_google_fonts_url')) {
 
         return esc_url_raw($fontsURL);
     }
+}
+
+/**
+ * Filter the excerpt_more text
+ *
+ * @param string $more
+ * @return string
+ */
+function mconqueror_excerpt_more(string $more) : string
+{
+    return '';
+}
+add_filter('excerpt_more', 'mconqueror_excerpt_more');
+
+/**
+ * Add CSS classes to posts
+ */
+if( ! function_exists( 'mconqueror_post_class') ) {
+	add_filter('post_class', 'mconqueror_post_class');
+
+	function mconqueror_post_class( $classes ) {
+
+		$classes[] = 'mconqueror-article';
+        $classes[] = 'clearfix';
+
+		return $classes;
+	}
+}
+
+
+/**
+ * Menu fallback. Link to the menu editor if that is useful.
+ *
+ * @param  array $args
+ * @return string
+ */
+function mconqueror_link_to_menu_editor( $args )
+{
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
+    // see wp-includes/nav-menu-template.php for available arguments
+    extract( $args );
+
+    $link = $link_before . '<a href="' . esc_url(admin_url('nav-menus.php')) . '" class="create-menu">' . esc_attr($before) . esc_attr__('Create a menu', 'mountain-conqueror') . esc_attr($after) . '</a>' . $link_after;
+
+    // We have a list
+    if (false !== stripos($items_wrap, '<ul')
+        or false !== stripos($items_wrap, '<ol')
+    ) {
+        $link = "<li>" . $link ."</li>";
+    }
+
+    $output = sprintf($items_wrap, $menu_id, $menu_class, $link);
+    if (! empty($container)) {
+        $output  = "<". esc_attr($container) ." class='". esc_attr($container_class) ."' id='". esc_attr($container_id) ."'>$output</". esc_attr($container) .">";
+    }
+
+    if ($echo) {
+        echo wp_specialchars_decode(esc_html($output), ENT_QUOTES);
+    }
+
+    return $output;
 }

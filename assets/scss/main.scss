@@ -233,10 +233,13 @@ section.main {
     article {
         padding-bottom: 20px;
         margin-bottom: 65px;
-        border-bottom: 1px solid #0F1E2D;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #0F1E2D;
+        }
 
         .post-content {
-            width: 68%;
+            width: 100%;
             padding-right: 30px;
             box-sizing: border-box;
             float: left;
@@ -263,6 +266,10 @@ section.main {
                 font-size: 50px;
                 font-weight: 400;
             }
+        }
+
+        &.has-post-thumbnail .post-content {
+            width: 68%;
         }
     
         .post-thumbnail {

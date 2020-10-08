@@ -12,7 +12,12 @@
 
         <?php get_template_part('templates/post', 'meta'); ?>
     </div>
-    <div class="post-thumbnail">
-        <img src="<?php echo get_template_directory_uri() . '/assets/img/post-thumbnail-1.jpg' ?> " alt="post thumbnail">
-    </div>
+    
+    <?php 
+        if (has_post_thumbnail()) {
+            echo '<div class="post-thumbnail">';
+                the_post_thumbnail();
+            echo '</div>';
+        }
+    ?>
 </article>
