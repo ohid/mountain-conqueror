@@ -1,0 +1,19 @@
+.btn-mc-primary {
+    color: #fff;
+    background: #9f3636;
+    border: 1px solid #9f3636;
+
+    &:hover {
+        background-color: #982d2d;
+        border-color: #982d2d;
+        color: #fff;
+    }
+
+    &.focus,
+    &:focus {
+        color: #fff;
+        background-color: #982d2d;
+        border-color: #982d2d;
+        box-shadow: 0 0 0 0.2rem rgba(175, 26, 26, .5)
+    }
+}
