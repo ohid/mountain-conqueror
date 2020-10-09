@@ -15,6 +15,7 @@ final class Init
         return array(
             Classes\Setup::class,
             Classes\Enqueue::class,
+            Classes\CPT::class,
         );
     }
 

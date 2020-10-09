@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 
 namespace MConqueror\Classes;
+use Inpsyde\Events\Model\Event;
+
 
 class Template
 {
@@ -53,5 +55,17 @@ class Template
         $output = sprintf('<div class="footer-imprint"><a href="#">Imprint</a></div>');
 
         return $output;
+    }
+
+    public static function eventMeta($post)
+    {
+        $event = Event::fromPost($post);
+
+        printf(
+            '<p class="event-meta">%s - %s > %s</p>',
+            $event->startDate()->format('d'),
+            $event->endDate()->format(get_option('date_format')),
+            $event->location()->country()
+        );
     }
 }

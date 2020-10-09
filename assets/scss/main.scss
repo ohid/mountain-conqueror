@@ -66,10 +66,11 @@ img {
 a:hover, 
 a:active {
     text-decoration: underline;
-}
+} 
 
 @import "partials/_header";
 @import "partials/_main";
 @import "partials/_content";
+@import "partials/_event";
 @import "partials/_button";
 @import "partials/_footer";
