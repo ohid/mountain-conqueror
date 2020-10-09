@@ -10,7 +10,9 @@
 defined('ABSPATH') || exit;
 ?>
 
-<div class="posts-navigations d-flex justify-content-between">
+<?php do_action('mc_before_posts_navigation'); ?>
+
+<div class="post-navigations d-flex justify-content-between">
 
     <div>
         <?php
@@ -40,3 +42,5 @@ defined('ABSPATH') || exit;
         ?>
     </div>
 </div>
+
+<?php do_action('mc_after_posts_navigation'); ?>

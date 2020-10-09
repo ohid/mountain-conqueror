@@ -9,7 +9,7 @@
 defined('ABSPATH') || exit;
 
 get_header();
-?>      
+?>
     <div class="col-md-12">
         <div class="not-found text-center">
             <h2><?php esc_html_e('Not found', 'mountain-conqueror'); ?></h2>

@@ -1,12 +1,12 @@
-<?php 
+<?php
 /**
  * The footer file of Mountain Conqueror theme
- * 
+ *
  * @package mountain-conqueror
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 ?>
 
 <!DOCTYPE html>
@@ -14,12 +14,12 @@ defined( 'ABSPATH' ) || exit;
 
 <head>
 
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
-        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <?php if (is_singular() && pings_open(get_queried_object())) : ?>
+        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php endif; ?>
 
 <?php wp_head(); ?>
@@ -28,8 +28,11 @@ defined( 'ABSPATH' ) || exit;
 
 <body <?php body_class(); ?> id="top">
 
+    <?php do_action('mc_before_site_wrapper'); ?>
+
     <!-- Start <div class="site-wrapper"> -->
     <div class="site-wrapper">
+        <?php do_action('mc_before_header'); ?>
         
         <header>
             <div class="container">
@@ -41,9 +44,9 @@ defined( 'ABSPATH' ) || exit;
                                     '<a href="%s"><img src="%s" alt="%s"></a>',
                                     esc_url(home_url('/')),
                                     get_template_directory_uri() . '/assets/img/logo.png',
-                                    get_bloginfo('title')
+                                    esc_attr(get_bloginfo('title'))
                                 );
-                            ?>
+                                ?>
                         </div>
                     </div>
                     <div class="col-md-9">
@@ -57,8 +60,10 @@ defined( 'ABSPATH' ) || exit;
             </div>
         </header>
 
+        <?php do_action('mc_after_header'); ?>
 
         <!-- Beginning of <section class="main"> -->
         <section class="main">
+            <?php do_action('mc_start_main'); ?>
             <div class="container">
                 <div class="row">

@@ -9,6 +9,8 @@
 defined('ABSPATH') || exit;
 ?>
 
+<?php do_action('mc_start_sidemenu'); ?>
+
 <div class="col-md-3">
     <div class="side-menu">
         <?php
@@ -22,3 +24,5 @@ defined('ABSPATH') || exit;
         ?>
     </div>
 </div>
+
+<?php do_action('mc_end_sidemenu'); ?>

@@ -167,8 +167,8 @@ class Setup
             $output .= get_the_posts_pagination(array(
                 'screen_reader_text' => ' ',
                 'mid_size' => 2,
-                'prev_text' => __('Older posts', 'mountain-conqueror'),
-                'next_text' => __('Newer posts', 'mountain-conqueror'),
+                'prev_text' => __('Newer posts', 'mountain-conqueror'),
+                'next_text' => __('Older posts', 'mountain-conqueror'),
             ));
         $output . '</div>';
 
