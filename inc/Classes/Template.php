@@ -57,14 +57,14 @@ class Template
         return $output;
     }
 
-    public static function eventMeta($post)
+    public static function eventMeta(\WP_Post $post)
     {
         $event = Event::fromPost($post);
 
         printf(
             '<p class="event-meta">%s - %s > %s</p>',
             $event->startDate()->format('d'),
-            $event->endDate()->format(get_option('date_format')),
+            $event->endDate()->format('d.m.Y'),
             $event->location()->country()
         );
     }

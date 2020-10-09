@@ -27,9 +27,6 @@ get_header();
                     
                         get_template_part('templates/article', get_post_type());
                     endwhile;
-
-                    // Display the posts pagination
-                    echo Setup::postsPagination();
                 else :
                     get_template_part('templates/no-posts');
                 endif;

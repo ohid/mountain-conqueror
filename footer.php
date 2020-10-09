@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
         <footer class="site-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 offset-md-3">
+                    <div class="col-md-9 offset-md-3 footer-column">
                         <div class="footer-content d-flex">
 
                             <?php

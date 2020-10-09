@@ -28,19 +28,59 @@
     }
 }
 
+.single-event{
+
+    .event-information {
+        
+        .event-details {
+            width: 73%;
+            float: left;
+            
+            table {
+                th {
+                    width: 32%;
+                    vertical-align: top;
+                }
+                td {
+                    span {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .event-contact {
+            width: 27%;
+            float: left;
+        
+            span {
+                display: block;
+                font-size: 19px;
+            }
+        }
+    
+    }
+
+    .event-content {
+        margin-top: 25px;
+    }
+    
+
+}
+
+
 .event-content {
     .event-meta {
         font-size: 16px;
         font-style: italic;
         margin-bottom: 5px;
     }
-
-    .event-title a{
-        color: inherit;
-
-        &:hover {
-            color: #9F3636
-        }
-    }
 }
 
+.event-title a{
+    color: inherit;
+
+    &:hover {
+        color: #9F3636
+    }
+}
