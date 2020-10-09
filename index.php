@@ -13,7 +13,7 @@ get_header();
 
         <?php
             // Include the side navigation
-            get_template_part( 'templates/side', 'menu' );
+            get_template_part( 'templates/partials/side', 'menu' );
         ?>
 
         <div class="col-md-9">

@@ -6,7 +6,7 @@
 
         <?php 
             // Include the post meta template
-            get_template_part('templates/post', 'meta'); 
+            get_template_part('templates/partials/post', 'meta'); 
         ?>
     </div>
     

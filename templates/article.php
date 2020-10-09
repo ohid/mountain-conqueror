@@ -1,13 +1,26 @@
 <article <?php post_class(); ?>>
     <div class="post-content">
-        <h2 class="post-title"><?php the_title(); ?></h2>
+        <h2 class="post-title">
+            <?php 
+                // Make the title clickable but not for single posts.
+                if (is_single()) {
+                    the_title();
+                }  else {
+                    printf(
+                        '<a href="%s">%s</a>',
+                        esc_url(get_the_permalink()),
+                        esc_html(get_the_title())
+                    );
+                }
+            ?>
+        </h2>
 
         <?php if (! is_single()) { ?>
             <p> <?php echo get_the_excerpt();
                     echo sprintf(
-                        '<a href="%s">%s</a>', 
+                        '<a href="%s" class="read-more">%s</a>', 
                         esc_url(get_the_permalink()),
-                        __(' [read more]', 'mountain-conqueror')
+                        __('[read more]', 'mountain-conqueror')
                     )
             ?> </p>
         <?php 
@@ -17,7 +30,7 @@
             }
 
             // Include the post meta template
-            get_template_part('templates/post', 'meta'); 
+            get_template_part('templates/partials/post', 'meta'); 
         ?>
     </div>
     

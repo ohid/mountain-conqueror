@@ -24,7 +24,6 @@
                 text-transform: uppercase;
             }
     
-    
             .post-meta a {
                 font-size: 16px;
                 color: #000000;
@@ -37,11 +36,27 @@
             .post-title {
                 font-size: 50px;
                 font-weight: 400;
+
+                a {
+                    color: inherit;
+
+                    &:hover {
+                        color: #9F3636;
+                    }
+                }
+            }
+
+            a {
+                color: #9F3636
             }
 
             .wp-caption,
             .img {
                 max-width: 100%;
+            }
+
+            .read-more {
+                margin-left: 5px;
             }
         }
 
