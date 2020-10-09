@@ -230,14 +230,14 @@ if (! function_exists('mconqueror_link_to_menu_editor')) {
     }
 }
 
-if (! function_exists('mconqueror_posts_navigation')) {
+if (! function_exists('mconqueror_posts_pagination')) {
 
     /**
      * Display the posts navigation
      *
      * @return void
      */
-    function mconqueror_posts_navigation() : string
+    function mconqueror_posts_pagination() : string
     {
         $output = '<div class="mconqueror-pagination">';
             $output .= get_the_posts_pagination(array(

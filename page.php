@@ -27,9 +27,6 @@ get_header();
 
                         endwhile;
 
-                        // Display the posts thumbnail
-                        echo mconqueror_posts_navigation();
-
                     else:
                         get_template_part('templates/no-posts');
                     endif;

@@ -1,3 +1,15 @@
+<?php 
+/**
+ * The article parital template that display the posts
+ * Included in index.php and single.php
+ * 
+ * @package mountain-conqueror
+ */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+?>
+
 <article <?php post_class(); ?>>
     <div class="post-content">
         <h2 class="post-title">
