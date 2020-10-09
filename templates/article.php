@@ -46,3 +46,10 @@
         }
     ?>
 </article>
+
+<?php 
+
+if (is_single()) {
+    // Load the posts navigation only for single post
+    get_template_part('templates/partials/posts', 'navigation');
+}
