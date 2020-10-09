@@ -1,25 +1,23 @@
 <?php declare(strict_types=1);
-/**
- * Functions and definitions
- *
- * @package mountain-conqueror
- */
 
-// Exit if accessed directly.
-defined('ABSPATH') || exit;
+namespace MConqueror\Classes;
 
-if (! function_exists('mconqueror_scripts')) {
-    add_action('wp_enqueue_scripts', 'mconqueror_scripts');
+class Enqueue
+{
+    public function register()
+    {
+        add_action('wp_enqueue_scripts', [$this, 'scripts']);
+    }
 
-    function mconqueror_scripts()
+    public function scripts()
     {
 
         /**
          * CSS files enqueue
          */
-        wp_enqueue_style('mconqueror-style', get_stylesheet_uri(), [], mconqueror_filemtime('/style.css'));
+        wp_enqueue_style('mconqueror-style', get_stylesheet_uri(), [], Setup::filemtime('/style.css'));
 
-        wp_enqueue_style('mconqueror-google-fonts', mconqueror_google_fonts_url(), [], null);
+        wp_enqueue_style('mconqueror-google-fonts', Setup::googleFontsURL(), [], null);
 
         // Loading the bootstrap css from the CDN
         wp_enqueue_style(
@@ -43,7 +41,7 @@ if (! function_exists('mconqueror_scripts')) {
             'mconqueror-main',
             get_template_directory_uri() . '/assets/css/main.css',
             [],
-            mconqueror_filemtime('/assets/css/main.css')
+            Setup::filemtime('/assets/css/main.css')
         );
 
         /**

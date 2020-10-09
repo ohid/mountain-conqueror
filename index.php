@@ -1,41 +1,41 @@
-<?php 
+<?php use MConqueror\Classes\Setup;
+
 /**
  * The main template file for Mauntain Conqueror theme.
- * 
+ *
  * @package mountain-conqueror
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 ?>
 
         <?php
             // Include the side navigation
-            get_template_part( 'templates/partials/side', 'menu' );
+            get_template_part('templates/partials/side', 'menu');
         ?>
 
         <div class="col-md-9">
             <div class="entry-content">
                 <?php
-                    // Check if have posts
-                    if( have_posts() ) :
-                        while( have_posts() ) : the_post();
-                        
-                            get_template_part('templates/article', get_post_type() );
+                // Check if have posts
+                if (have_posts()) :
+                    while (have_posts()) :
+                        the_post();
+                    
+                        get_template_part('templates/article', get_post_type());
+                    endwhile;
 
-                        endwhile;
-
-                        // Display the posts pagination
-                        echo mconqueror_posts_pagination();
-
-                    else:
-                        get_template_part('templates/no-posts');
-                    endif;
+                    // Display the posts pagination
+                    Setup::postsPagination();
+                else :
+                    get_template_part('templates/no-posts');
+                endif;
                 ?>
             </div>
         </div>
-
-<?php 
+        
+<?php
 get_footer();

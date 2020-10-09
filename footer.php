@@ -1,4 +1,4 @@
-<?php 
+<?php use MConqueror\Classes\Template;
 /**
  * The footer file of Mountain Conqueror theme
  * 
@@ -7,7 +7,6 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-
 ?>
                 </div>
             </div>
@@ -23,13 +22,13 @@ defined( 'ABSPATH' ) || exit;
                             <?php
 
                                 // Display the footer copyright text
-                                echo mconqueror_footer_copyright();
+                                echo Template::footerCopyright();
                                 
                                 // Display the footer social links
-                                echo mconqueror_footer_socials();
+                                echo Template::footerSocials();
                                 
                                 // Display the footer imprint link
-                                echo mconqueror_footer_imprint();
+                                echo Template::footerImprint();
                             ?>
                         </div>
                     </div>

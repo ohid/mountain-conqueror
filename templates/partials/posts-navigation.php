@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
                 printf(
                     '<a href="%s"><h4>« %s</h4></a>',
                     esc_url(get_permalink($prev_post->ID) ),
-                    esc_attr($prev_post->post_title )
+                    wp_specialchars_decode(esc_html($prev_post->post_title), ENT_QUOTES)
                 );
             endif;
         ?>
@@ -34,7 +34,7 @@ defined('ABSPATH') || exit;
                 printf(
                     '<a href="%s"><h4>%s »</h4></a>',
                     esc_url(get_permalink($next_post->ID)),
-                    esc_attr($next_post->post_title)
+                    wp_specialchars_decode(esc_html($next_post->post_title), ENT_QUOTES)
                 );
             endif;
         ?>

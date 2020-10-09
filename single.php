@@ -1,4 +1,4 @@
-<?php 
+<?php use MConqueror\Classes\Setup;
 /**
  * The single post template file for Mauntain Conqueror theme.
  * 
@@ -28,7 +28,7 @@ get_header();
                         endwhile;
 
                         // Display the posts pagination
-                        echo mconqueror_posts_pagination();
+                        echo Setup::postsPagination();
 
                     else:
                         get_template_part('templates/no-posts');

@@ -1,3 +1,14 @@
+<?php
+/**
+ * The side menu
+ *
+ * @package mountain-conqueror
+ */
+
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
+?>
+
 <div class="col-md-3">
     <div class="side-menu">
         <?php
