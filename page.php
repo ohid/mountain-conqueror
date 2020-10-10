@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-        <div class="col-md-9">
+        <div class="col-md-12 col-lg-9">
             <div class="entry-content">
                 <?php
                 // Check if have posts

@@ -60,8 +60,16 @@
             }
         }
 
-        &.has-post-thumbnail .post-content {
-            width: 68%;
+        @include tablet-min-md {
+            &.has-post-thumbnail .post-content {
+                width: 68%;
+            }
+        }
+        
+        @include tablet-md {
+            .post-content {
+                padding-right: 0px;
+            }
         }
     
         .post-thumbnail {
@@ -75,8 +83,20 @@
             }
         }
 
+        @include tablet-md {
+            .post-thumbnail {
+                display: none;
+            }
+        }
+
         p a {
             color: #9F3636
+        }
+    }
+
+    @include sm {
+        article {
+            margin-bottom: 45px;
         }
     }
 
@@ -98,6 +118,13 @@
     .post-navigations a {
         color: #9F3636
     }
+
+    @include sm {
+        .mconqueror-pagination .page-numbers {
+            margin-bottom: 5px;
+        }
+
+    }
 }
 
 body.single .entry-content article .post-content {
@@ -105,4 +132,16 @@ body.single .entry-content article .post-content {
 }
 body.page .entry-content article {
     margin-bottom: 0;
+}
+
+@include tablet-md {
+    .entry-content {
+        padding-left: 0px;
+    }
+}
+
+@include sm {
+    .entry-content {
+        padding: 0 15px;
+    }
 }

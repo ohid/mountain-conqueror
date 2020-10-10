@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 
 <?php do_action('mc_start_sidemenu'); ?>
 
-<div class="col-md-3">
+<div class="col-md-3 d-none d-lg-block">
     <div class="side-menu">
         <?php
             if( function_exists('wp_nav_menu') ) {

@@ -11,8 +11,15 @@
  
 
 // Tablet portrait mode
- @mixin tablet-md {
-    @media (max-width: #{$screen-tablet-md-max}) {
+@mixin tablet-md {
+    @media (max-width: #{$screen-tablet-md-min}) {
+        @content;
+    }
+}
+
+// Tablet portrait mode and larger
+@mixin tablet-min-md {
+    @media (min-width: #{$screen-tablet-md-min}) {
         @content;
     }
 }

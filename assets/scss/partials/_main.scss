@@ -11,6 +11,12 @@ section {
             margin: 65px 0 130px;
         }
     }
+
+    @include sm {
+        &.main {
+            margin: 35px 0 130px;
+        }
+    }
 }
 
 .side-menu {
@@ -44,8 +50,7 @@ section {
                     width: 100%;
                     z-index: 9;
                     top: 0;
-                    opacity: 0;
-                    visibility: hidden;
+                    display: none;
                     background-color: #0f1e2d;
                 }
 
@@ -60,8 +65,7 @@ section {
                 }
 
                 &:hover > ul.sub-menu {
-                    opacity: 1;
-                    visibility: visible;
+                    display: block;
                 }
             }
 
@@ -73,10 +77,4 @@ section {
             }
         }
     }
-}
-
-@include tablet-md {
-    .side-menu {
-        display: none;
-    }       
 }

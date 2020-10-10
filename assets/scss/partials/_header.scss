@@ -16,6 +16,13 @@ header {
             margin: auto;
         }
     }
+    
+    @include sm {
+        .logo {
+            max-width: 200px;
+            margin: auto;
+        }
+    }
 
     .logo img {
         max-width: 100%;

@@ -11,7 +11,7 @@
 defined('ABSPATH') || exit;
 ?>
 
-<div class="col-md-6">
+<div class="col-md-12 col-lg-6">
     <article <?php post_class(); ?>>
         <div class="event-content">
             
