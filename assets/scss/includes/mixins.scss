@@ -4,24 +4,32 @@
 
 // Small devices
 @mixin sm {
-    @media (min-width: #{$screen-sm-min}) {
+    @media (max-width: #{$screen-sm-max}) {
         @content;
     }
  }
  
- // Medium devices
- @mixin md {
-    @media (min-width: #{$screen-md-min}) {
+
+// Tablet portrait mode
+ @mixin tablet-md {
+    @media (max-width: #{$screen-tablet-md-max}) {
         @content;
     }
- }
+}
+
+// Tablet landscape mode
+@mixin md {
+    @media (max-width: #{$screen-md-max}) {
+        @content;
+    }
+}
  
- // Large devices
- @mixin lg {
-    @media (min-width: #{$screen-lg-min}) {
+// Large devices
+@mixin lg {
+    @media (max-width: #{$screen-lg-max}) {
         @content;
     }
- }
+}
  
  // Extra large devices
  @mixin xl {

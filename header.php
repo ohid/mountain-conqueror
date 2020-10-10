@@ -38,12 +38,12 @@ defined('ABSPATH') || exit;
         <header>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-12 col-lg-3">
                         <div class="logo">
                             <?php Template::siteLogo();?>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 d-none d-lg-block">
                         <div class="site-tagline">
                             <?php Template::headerSlogan();?>
                         </div>

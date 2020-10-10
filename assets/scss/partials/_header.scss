@@ -4,9 +4,16 @@
 header {
     margin-top: 55px;
 
-    @include lg {
+    @include xl {
         .logo {
             max-width: 250px;
+        }
+    }
+
+    @include md {
+        .logo {
+            max-width: 296px;
+            margin: auto;
         }
     }
 

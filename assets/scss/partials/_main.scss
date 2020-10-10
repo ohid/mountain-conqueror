@@ -5,6 +5,12 @@ section {
     &.main {
         margin: 95px 0 160px;
     }
+
+    @include md {
+        &.main {
+            margin: 65px 0 130px;
+        }
+    }
 }
 
 .side-menu {
@@ -67,4 +73,10 @@ section {
             }
         }
     }
+}
+
+@include tablet-md {
+    .side-menu {
+        display: none;
+    }       
 }
