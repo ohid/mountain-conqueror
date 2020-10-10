@@ -42,5 +42,57 @@ footer {
                 }
             }
         }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @include tablet-md {
+            .footer-content {
+                position: relative;
+
+                .footer-socials {
+                    display: none;
+                }
+    
+                .mobile-menu {
+                    display: block;
+                    position: absolute;
+                    right: 0px;
+    
+                    button {
+                        font-size: 35px;
+                        background: none;
+                        color: #fff;
+                        border: 0;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+        @include sm {
+            
+            .footer-content {
+                .footer-copyright,
+                .footer-socials,
+                .footer-imprint {
+                    display: none;
+                }
+
+                .mobile-menu {
+                    display: block;
+                    position: absolute;
+                    right: 50%;
+                    transform: translateX(54px);
+                }
+            }
+        }
+    }
+
+    @include sm {
+        &.site-footer {
+            height: 70px;
+            line-height: 70px;
+        }
     }
 }

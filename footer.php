@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
         <footer class="site-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 offset-md-3 footer-column">
+                    <div class="col-md-12 col-lg-9 offset-lg-3 footer-column">
                         <div class="footer-content d-flex">
 
                             <?php
@@ -32,6 +32,10 @@ defined('ABSPATH') || exit;
                                 // Display the footer imprint link
                                 echo Template::footerImprint();
                             ?>
+
+                            <div class="mobile-menu">
+                                <button><?php esc_html_e('Menu', 'mountain-conqueror'); ?></button>
+                            </div>
                         </div>
                     </div>
                 </div>
