@@ -1,16 +1,21 @@
 <?php declare(strict_types=1);
 
 namespace MConqueror\Classes;
-use Inpsyde\Events\Model\Event;
 
+use Inpsyde\Events\Model\Event;
 
 class Template
 {
+    /**
+     * Generate the logo for the site
+     *
+     * @return void
+     */
     public static function siteLogo()
     {
         // Check if there has a custom logo set from the customizer
         if (has_custom_logo()) {
-            $logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
+            $logo = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'full');
 
             printf(
                 '<a href="%s"><img src="%s" alt="%s"></a>',
@@ -23,11 +28,10 @@ class Template
             printf(
                 '<a href="%s"><img src="%s" alt="%s"></a>',
                 esc_url(home_url('/')),
-                get_template_directory_uri() . '/assets/img/logo.png',
+                esc_attr(get_template_directory_uri() . '/assets/img/logo.png'),
                 esc_attr(get_bloginfo('title'))
             );
         }
-        
     }
 
     /**
@@ -37,8 +41,9 @@ class Template
      */
     public static function footerCopyright() : string
     {
+        $footer_copyright = get_theme_mod('footer_copyright_settings');
         // Display a static copyright text for now, we will make it dynamic later
-        $output = sprintf('<div class="footer-copyright"><p>@2020 by Ohidul Islam</p></div>');
+        $output = sprintf('<div class="footer-copyright"><p>%s</p></div>', $footer_copyright);
 
         return $output;
     }
@@ -51,16 +56,35 @@ class Template
     public static function footerSocials() : string
     {
         // Display static social links for now, we will make it dynamic later
+
+        $footer_social_title = get_theme_mod('footer_social_title');
+
+        // The defined social profiles
+        $socialProfiles = [
+            'instagram' => 'footer_instagram_url',
+            'twitter' => 'footer_twitter_url',
+            'vimeo' => 'footer_vimeo_url',
+            'youtube' => 'footer_youtube_url',
+        ];
+
         $output = '<div class="footer-socials">';
         
-        $output .= sprintf('<span>Follow my adventures</span>');
+        if ($footer_social_title) {
+            $output .= sprintf('<span>%s</span>', $footer_social_title);
+        }
 
-        $output .= '<span class="social-list">
-                        <a href="#" class="social-instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-vimeo"><i class="fab fa-vimeo"></i></a>
-                        <a href="#" class="social-youtube"><i class="fab fa-youtube"></i></a>
-                    </span>';
+        $output .= '<span class="social-list">';
+            
+        // Loop through the social profiles and display them
+        foreach ($socialProfiles as $name => $theme_mod) {
+            $social_link = get_theme_mod($theme_mod);
+
+            if ($social_link) {
+                $output .= sprintf('<a href="%1$s" class="social-%2$s"><i class="fab fa-%2$s"></i></a>', $social_link, $name);
+            }
+        }
+                        
+        $output .= '</span>';
 
         $output .= '</div>';
 
@@ -75,20 +99,37 @@ class Template
     public static function footerImprint() : string
     {
         // Display a static imprint button for now, we will make it dynamic later
-        $output = sprintf('<div class="footer-imprint"><a href="#">Imprint</a></div>');
+        $footer_imprint_label = get_theme_mod('footer_imprint_label');
+        $footer_imprint_url = get_theme_mod('footer_imprint_url');
+
+        $output = '';
+        
+        if ($footer_imprint_label) {
+            $output = sprintf(
+                '<div class="footer-imprint"><a href="%s">%s</a></div>',
+                $footer_imprint_url,
+                $footer_imprint_label
+            );
+        }
 
         return $output;
     }
 
+    /**
+     * Display the event meta data
+     *
+     * @param \WP_Post $post
+     * @return void
+     */
     public static function eventMeta(\WP_Post $post)
     {
         $event = Event::fromPost($post);
 
         printf(
             '<p class="event-meta">%s - %s > %s</p>',
-            $event->startDate()->format('d'),
-            $event->endDate()->format('d.m.Y'),
-            $event->location()->country()
+            esc_html($event->startDate()->format('d')),
+            esc_html($event->endDate()->format('d.m.Y')),
+            esc_html($event->location()->country())
         );
     }
 }

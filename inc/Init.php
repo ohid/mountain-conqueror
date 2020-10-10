@@ -16,6 +16,7 @@ final class Init
             Classes\Setup::class,
             Classes\Enqueue::class,
             Classes\CPT::class,
+            Classes\CustomierAPI::class,
         );
     }
 

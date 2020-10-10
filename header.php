@@ -1,4 +1,5 @@
 <?php use MConqueror\Classes\Template;
+
 /**
  * The footer file of Mountain Conqueror theme
  *
@@ -39,9 +40,7 @@ defined('ABSPATH') || exit;
                 <div class="row">
                     <div class="col-md-3">
                         <div class="logo">
-                            <?php Template::siteLogo();
-
-                                ?>
+                            <?php Template::siteLogo();?>
                         </div>
                     </div>
                     <div class="col-md-9">

@@ -163,21 +163,20 @@ class Setup
      */
     public static function postsPagination()
     {
-        
-            $pagination = get_the_posts_pagination(array(
-                'screen_reader_text' => ' ',
-                'mid_size' => 2,
-                'prev_text' => __('Newer posts', 'mountain-conqueror'),
-                'next_text' => __('Older posts', 'mountain-conqueror'),
-            ));
+    
+        $pagination = get_the_posts_pagination(array(
+            'screen_reader_text' => ' ',
+            'mid_size' => 2,
+            'prev_text' => __('Newer posts', 'mountain-conqueror'),
+            'next_text' => __('Older posts', 'mountain-conqueror'),
+        ));
 
-            if( $pagination ) {
-                $output = '<div class="mconqueror-pagination">';
-                $output .= $pagination;
-                $output .= '</div>';
+        if ($pagination) {
+            $output = '<div class="mconqueror-pagination">';
+            $output .= $pagination;
+            $output .= '</div>';
 
-                echo $output;
-            }
-
+            echo $output;
+        }
     }
 }
