@@ -6,6 +6,29 @@ use Inpsyde\Events\Model\Event;
 
 class Template
 {
+    public static function siteLogo()
+    {
+        // Check if there has a custom logo set from the customizer
+        if (has_custom_logo()) {
+            $logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
+
+            printf(
+                '<a href="%s"><img src="%s" alt="%s"></a>',
+                esc_url(home_url('/')),
+                esc_url($logo[0]),
+                esc_attr(get_bloginfo('name'))
+            );
+        } else {
+            // otherwise display fallback logo from the theme source
+            printf(
+                '<a href="%s"><img src="%s" alt="%s"></a>',
+                esc_url(home_url('/')),
+                get_template_directory_uri() . '/assets/img/logo.png',
+                esc_attr(get_bloginfo('title'))
+            );
+        }
+        
+    }
 
     /**
      * Generates the footer copyright text with necessary HTML markup

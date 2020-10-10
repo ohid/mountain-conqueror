@@ -1,4 +1,4 @@
-<?php
+<?php use MConqueror\Classes\Template;
 /**
  * The footer file of Mountain Conqueror theme
  *
@@ -39,13 +39,8 @@ defined('ABSPATH') || exit;
                 <div class="row">
                     <div class="col-md-3">
                         <div class="logo">
-                            <?php
-                                printf(
-                                    '<a href="%s"><img src="%s" alt="%s"></a>',
-                                    esc_url(home_url('/')),
-                                    get_template_directory_uri() . '/assets/img/logo.png',
-                                    esc_attr(get_bloginfo('title'))
-                                );
+                            <?php Template::siteLogo();
+
                                 ?>
                         </div>
                     </div>
