@@ -53,5 +53,13 @@ class Enqueue
             // As we are not designing the comments form and comments list so this script will not be needed for our theme
             // wp_enqueue_script( 'comment-reply' );
         }
+        
+        wp_enqueue_script(
+            'mconqueror-js',
+            get_template_directory_uri() . '/assets/js/build/main.js',
+            [],
+            Setup::filemtime('/assets/js/build/main.js'),
+            true
+        );
     }
 }

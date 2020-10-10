@@ -34,7 +34,7 @@ defined('ABSPATH') || exit;
                             ?>
 
                             <div class="mobile-menu">
-                                <button><?php esc_html_e('Menu', 'mountain-conqueror'); ?></button>
+                                <button id="menu-opener"><?php esc_html_e('Menu', 'mountain-conqueror'); ?></button>
                             </div>
                         </div>
                     </div>

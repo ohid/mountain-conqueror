@@ -1,6 +1,7 @@
 const { src, dest, series, parallel, watch } = require('gulp');
 const sass = require('gulp-sass'),
       sourcemaps = require('gulp-sourcemaps'),
+      terser = require('gulp-terser'),
       uglify = require('gulp-uglify'),
       uglifycss = require('gulp-uglifycss');
 
@@ -9,7 +10,10 @@ const files = {
         src: 'assets/scss/*.scss',
         dest: 'assets/css/'
     },
-    jsPath: 'assets/js/*.js',
+    jsPath: {
+        src: 'assets/js/*.js',
+        dest: 'assets/js/build'
+    },
 }
 
 /**
@@ -31,9 +35,9 @@ function scssTask(){
  * Minifies the JS files
  */
 function jsTask(){
-    return src('assets/js/*.js')
-        .pipe(uglify())
-        .pipe(dest('assets/js/build/')
+    return src(files.jsPath.src)
+        .pipe(terser())
+        .pipe(dest(files.jsPath.dest)
     );
 }
 
@@ -43,7 +47,7 @@ function jsTask(){
  */
 function watchTask(){
     watch(
-        [files.scssPath.src, files.jsPath],
+        [files.scssPath.src, files.jsPath.src],
         parallel(scssTask, jsTask)
     );
 }

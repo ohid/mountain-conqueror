@@ -85,17 +85,16 @@ section {
 
 @include tablet-md {
     .side-menu {
-        position: absolute;
-        display: block;
         position: fixed;
         width: 100%;
         background: rgba(15, 30, 45, 0.85);
         left: 0;
         height: 100%;
-        top: 0;
+        top: 100%;
         z-index: 9;
         padding-top: 15%;
         opacity: 1;
+        transition: 0.4s all cubic-bezier(0.51, 0.01, 0.29, 0.95);
 
         ul {
             max-width: 100%;
@@ -138,6 +137,16 @@ section {
                 line-height: 70px;
                 color: #fff;
             }
+        }
+    }
+
+    .mobile-menu-enabled {
+        .side-menu {
+            top: 0px;
+        }
+
+        footer {
+            transform: translateY(90px);
         }
     }
 }
