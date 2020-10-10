@@ -11,11 +11,6 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-        <?php
-            // Include the side navigation
-            get_template_part('templates/partials/side', 'menu');
-        ?>
-
         <div class="col-md-9">
             <div class="entry-content">
                 <?php

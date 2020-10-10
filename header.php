@@ -59,3 +59,7 @@ defined('ABSPATH') || exit;
             <?php do_action('mc_start_main'); ?>
             <div class="container">
                 <div class="row">
+
+                <?php
+                // Include the side navigation
+                get_template_part('templates/partials/side', 'menu');
