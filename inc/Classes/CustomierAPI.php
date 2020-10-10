@@ -19,6 +19,9 @@ class CustomierAPI
         ]);
         
         // Generate the footer copyright panel
+        $this->header($wp_customize);
+        
+        // Generate the footer copyright panel
         $this->footerCopyright($wp_customize);
         
         // Generate the footer socials panel
@@ -26,6 +29,48 @@ class CustomierAPI
 
         // Generate the footer imprint panel
         $this->footerImprint($wp_customize);
+    }
+
+    /**
+     * Footer copyright section and settings field
+     *
+     * @param \WP_Customize_Manager $wp_customize
+     * @return void
+     */
+    public function header(\WP_Customize_Manager $wp_customize)
+    {
+        // Create footer copyright section
+        $wp_customize->add_section('header', [
+            'title' => __('Header', 'mountain_conqueror'),
+            'description' => __('Customize the header texts', 'mountain_conqueror'),
+            'panel' => 'mconqueror_options',
+        ]);
+                
+        // Create the footer copyright text field
+        $wp_customize->add_setting('header_slogan', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control('header_slogan_control', [
+            'label' => __('Slogan', 'mountain_conqueror'),
+            'description' => __('Change the header slogan text', 'mountain_conqueror'),
+            'section' => 'header',
+            'settings' => 'header_slogan',
+            'type' => 'text',
+        ]);
+                
+        // Create the footer copyright text field
+        $wp_customize->add_setting('header_author', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_control('header_author_control', [
+            'label' => __('Author name', 'mountain_conqueror'),
+            'description' => __('Change the author name', 'mountain_conqueror'),
+            'section' => 'header',
+            'settings' => 'header_author',
+            'type' => 'text',
+        ]);
     }
 
     /**

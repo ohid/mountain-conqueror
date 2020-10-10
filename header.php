@@ -45,9 +45,7 @@ defined('ABSPATH') || exit;
                     </div>
                     <div class="col-md-9">
                         <div class="site-tagline">
-                            <h1><?php echo esc_html(get_bloginfo('description')); ?></h1>
-
-                            <h4><?php echo esc_html(get_bloginfo('title')); ?></h4>
+                            <?php Template::headerSlogan();?>
                         </div>
                     </div>
                 </div>

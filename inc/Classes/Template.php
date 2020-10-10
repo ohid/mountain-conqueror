@@ -34,6 +34,20 @@ class Template
         }
     }
 
+    public static function headerSlogan()
+    {
+        $slogan = get_theme_mod('header_slogan');
+        $author = get_theme_mod('header_author');
+
+        if ($slogan) {
+            printf('<h1>%s</h1>', esc_html($slogan));
+        }
+
+        if ($author) {
+            printf('<h4>%s</h4>', esc_html($author));
+        }
+    }
+
     /**
      * Generates the footer copyright text with necessary HTML markup
      *
