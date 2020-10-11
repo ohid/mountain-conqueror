@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<ruleset name="MyProjectCodingStandard">
+
+    <description>Mountain Conqueror coding standard.</description>
+
+    <file>./inc</file>
+    <file>404.php</file>
+    <file>archive-event.php</file>
+    <file>archive.php</file>
+    <file>category.php</file>
+    <file>comments.php</file>
+    <file>footer.php</file>
+    <file>header.php</file>
+    <file>index.php</file>
+    <file>page.php</file>
+    <file>search.php</file>
+    <file>searchform.php</file>
+    <file>sidebar.php</file>
+    <file>single-event.php</file>
+    <file>single.php</file>
+    <file>tag.php</file>
+
+    <arg value="sp"/>
+    <arg name="colors"/>
+
+    <config name="testVersion" value="7.2-"/>
+    <config name="text_domain" value="mountain-conqueror"/>
+    
+    <rule ref="Inpsyde">
+        <exclude name="WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize" />
+    </rule>
+    
+    <rule ref="Inpsyde.CodeQuality.ElementNameMinimalLength">
+        <properties>
+            <property name="additionalAllowedNames" type="array" value="c,me,my" />
+        </properties>
+    </rule>
+
+</ruleset>

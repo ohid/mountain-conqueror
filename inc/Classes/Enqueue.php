@@ -45,14 +45,14 @@ class Enqueue
             Setup::filemtime('/assets/css/main.css')
         );
 
-        if (is_post_type_archive('event') || is_singular('event'))  {
+        if (is_post_type_archive('event') || is_singular('event')) {
             // Only enqueue the event.css file when we are on the archive event and single event page
             wp_enqueue_style(
                 'mconqueror-event',
                 get_template_directory_uri() . '/assets/css/event.css',
                 [],
                 Setup::filemtime('/assets/css/event.css')
-            );  
+            );
         }
         
         /**
