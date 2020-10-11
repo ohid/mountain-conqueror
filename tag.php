@@ -18,6 +18,8 @@ get_header();
 
                 Template::archiveTitle();
 
+                do_action('mc_after_archive_entry_content');
+
                 // Check if have posts
                 if (have_posts()) :
                     while (have_posts()) :

@@ -41,6 +41,10 @@ File location: *footer.php*
 Add your content after the footer ends
 File location: *footer.php*
 
+**mc_after_archive_entry_content**
+Add your content immediately after the archive title
+File location: *archive.php*, *category.php*, *tag.php*, *search.php*
+
 **mc_start_sidemenu**
 Add your content before the side menu
 File location: *templates/partials/side-menu.php*
