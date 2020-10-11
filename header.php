@@ -61,5 +61,8 @@ defined('ABSPATH') || exit;
                 <div class="row">
 
                 <?php
-                // Include the side navigation
-                get_template_part('templates/partials/side', 'menu');
+
+                if (! is_404()) {
+                    // Include the side navigation
+                    get_template_part('templates/partials/side', 'menu');
+                }
