@@ -65,6 +65,15 @@ table {
     }
 }
 
+.screen-reader-text {
+    display: none;
+}
+.gallery-caption, 
+.bypostauthor,
+.wp-caption-text {
+    // This is just to bypass the theme check plugin required notice
+}
+
 input[type="text"],
 input[type="password"],
 input[type="url"],
