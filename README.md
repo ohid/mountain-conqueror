@@ -45,5 +45,10 @@ define('DUMMY_EVENT', true);
 The theme uses WordPress's Customizer API to create the theme options. After activating the theme please go to **Appearance -> Customize -> Theme Options** to setup the heaader and footer necessary settings that are currently available.
 
 ### Changelog
+v1.0.1 - 11th October 2020
+- Make the comments template hidden 
+- Some other minor changes
+
 v1.0.0 - 11th October 2020
 - First release of the theme
+

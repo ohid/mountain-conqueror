@@ -66,7 +66,10 @@ defined('ABSPATH') || exit;
 
 <?php
     // If comments is open
-    comments_template();
+
+    // Commenting out the comments template for now
+    // Only uncomment when need to display the comments in single posts
+    // comments_template();
 ?>
 
 <?php 

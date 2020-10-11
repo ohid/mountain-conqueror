@@ -65,13 +65,13 @@ class Template
             printf(
                 '<h1 class="archive-title">%1$s <em>%2$s</em></h1>',
                 esc_html__('Showing archive for', 'mountain-conqueror'),
-                esc_html(get_the_archive_title())
+                get_the_archive_title()
             );
         } elseif (is_search()) {
             printf(
                 '<h1 class="archive-title">%1$s <em>%2$s</em></h1>',
                 esc_html__('Search results for:', 'mountain-conqueror'),
-                esc_html(get_search_query())
+                get_search_query()
             );
         }
     }
