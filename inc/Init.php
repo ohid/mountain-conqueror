@@ -12,12 +12,17 @@ final class Init
      */
     public static function getFiles() : array
     {
-        return array(
+        $classes = [
             Classes\Setup::class,
             Classes\Enqueue::class,
-            Classes\CPT::class,
             Classes\CustomierAPI::class,
-        );
+        ];
+
+        if (defined('DUMMY_EVENT') && DUMMY_EVENT === true) {
+            $classes[] = Classes\CPT::class;
+        }
+
+        return $classes;
     }
 
     /**

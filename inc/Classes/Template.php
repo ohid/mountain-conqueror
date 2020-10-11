@@ -2,7 +2,7 @@
 
 namespace MConqueror\Classes;
 
-use Inpsyde\Events\Model\Event;
+use MConqueror\Events\Model\Event;
 
 class Template
 {
@@ -165,13 +165,16 @@ class Template
      */
     public static function eventMeta(\WP_Post $post)
     {
-        $event = Event::fromPost($post);
+        if (class_exists('MConqueror\Events\Model\Event')) {
 
-        printf(
-            '<p class="event-meta">%s - %s > %s</p>',
-            esc_html($event->startDate()->format('d')),
-            esc_html($event->endDate()->format('d.m.Y')),
-            esc_html($event->location()->country())
-        );
+            $event = Event::fromPost($post);
+
+            printf(
+                '<p class="event-meta">%s - %s > %s</p>',
+                esc_html($event->startDate()->format('d')),
+                esc_html($event->endDate()->format('d.m.Y')),
+                esc_html($event->location()->country())
+            );
+        }
     }
 }

@@ -1,4 +1,5 @@
-<?php
+<?php use MConqueror\Events\Model\Event;
+
 /**
  * The event contact partial template for the single event template
  * Included in templates/article-single-event.php
@@ -11,11 +12,9 @@ defined('ABSPATH') || exit;
 
 global $post;
 
-use Inpsyde\Events\Model\Event;
-
-$event = Event::fromPost($post);
-$contactPerson = $event->contactPerson();
-
+if (class_exists('MConqueror\Events\Model\Event')) {
+    $event = Event::fromPost($post);
+    $contactPerson = $event->contactPerson();
 ?>
 
 <div class="contact-person">
@@ -44,3 +43,5 @@ $contactPerson = $event->contactPerson();
     ?>
 
 </div>
+
+<?php }

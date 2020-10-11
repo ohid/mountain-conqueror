@@ -1,4 +1,5 @@
-<?php
+<?php use MConqueror\Events\Model\Event;
+
 /**
  * The event details partial template for the single event template
  * Included in templates/article-single-event.php
@@ -11,10 +12,8 @@ defined('ABSPATH') || exit;
 
 global $post;
 
-use Inpsyde\Events\Model\Event;
-
-$event = Event::fromPost($post);
-
+if (class_exists('MConqueror\Events\Model\Event')) {
+    $event = Event::fromPost($post);
 ?>
 <table>
     <tbody>
@@ -97,3 +96,5 @@ $event = Event::fromPost($post);
         </tr>
     </tbody>
 </table>
+
+<?php }
