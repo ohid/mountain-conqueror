@@ -22,7 +22,7 @@ defined('ABSPATH') || exit;
                     printf(
                         '<a href="%s">%s</a>',
                         esc_url(get_the_permalink()),
-                        esc_html(get_the_title())
+                        get_the_title()
                     );
                 }
             ?>
@@ -63,6 +63,11 @@ defined('ABSPATH') || exit;
         }
     ?>
 </article>
+
+<?php
+    // If comments is open
+    comments_template();
+?>
 
 <?php 
 

@@ -182,7 +182,7 @@ class Setup
     public static function wpContentPaginated()
     {
         wp_link_pages( array(
-            'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'omega-theme' ) . '</span>',
+            'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'mountain-conqueror' ) . '</span>',
             'after'       => '</div>',
             'link_before' => '<span>',
             'link_after'  => '</span>',
