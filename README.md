@@ -6,7 +6,9 @@ Mountain Conqueror is a WordPress started blog theme.
 
 The theme can be installed via _**git clone**_ and _**composer require**_ method.
 
-To install it via the _**git clone**_ method please follow the below instructions 
+###### Git clone method
+To install it via the _**git clone**_ method please follow the below instructions.
+
 Go to /wp-content/themes directory then give the below command
 ``` 
 git clone https://github.com/ohid/mountain-conqueror.git
@@ -20,6 +22,7 @@ Now install the composer required packages using the following command
 composer install
 ```
 
+###### Composer require method
 To install it via the _**composer require**_ method please follow the below instructions
 ```
 composer config repositories.repo-name vcs git@github.com:ohid/mountain-conqueror.git
