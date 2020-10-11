@@ -1,4 +1,5 @@
-<?php 
+<?php use MConqueror\Classes\Setup;
+
 /**
  * The article parital template that display the posts
  * Included in index.php and single.php
@@ -38,7 +39,11 @@ defined('ABSPATH') || exit;
         <?php 
 
             } else {
+                // Display the post content
                 the_content();
+
+                // Show pagination inside the content that uses <!--nextpage-->
+                Setup::wpContentPaginated();
             }
 
             // Include the post meta template

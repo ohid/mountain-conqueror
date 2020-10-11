@@ -83,8 +83,9 @@ class Template
      */
     public static function footerCopyright() : string
     {
+        // Retrieve the settings from the customizer api
         $footer_copyright = get_theme_mod('footer_copyright_settings');
-        // Display a static copyright text for now, we will make it dynamic later
+
         $output = sprintf('<div class="footer-copyright"><p>%s</p></div>', $footer_copyright);
 
         return $output;
@@ -97,8 +98,7 @@ class Template
      */
     public static function footerSocials() : string
     {
-        // Display static social links for now, we will make it dynamic later
-
+        // Retrieve the settings from the customizer api
         $footer_social_title = get_theme_mod('footer_social_title');
 
         // The defined social profiles
@@ -140,7 +140,7 @@ class Template
      */
     public static function footerImprint() : string
     {
-        // Display a static imprint button for now, we will make it dynamic later
+        // Retrieve the settings from the customizer api
         $footer_imprint_label = get_theme_mod('footer_imprint_label');
         $footer_imprint_url = get_theme_mod('footer_imprint_url');
 

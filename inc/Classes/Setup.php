@@ -163,7 +163,6 @@ class Setup
      */
     public static function postsPagination()
     {
-    
         $pagination = get_the_posts_pagination(array(
             'screen_reader_text' => ' ',
             'mid_size' => 2,
@@ -178,5 +177,15 @@ class Setup
 
             echo $output;
         }
+    }
+
+    public static function wpContentPaginated()
+    {
+        wp_link_pages( array(
+            'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'omega-theme' ) . '</span>',
+            'after'       => '</div>',
+            'link_before' => '<span>',
+            'link_after'  => '</span>',
+        ) );
     }
 }
