@@ -14,6 +14,7 @@ final class Init
     {
         $classes = [
             Classes\Setup::class,
+            Classes\Widget::class,
             Classes\Enqueue::class,
             Classes\CustomierAPI::class,
         ];
