@@ -1,6 +1,6 @@
 # Mountain Conqueror
 
-Mountain Conqueror is a WordPress started blog theme. 
+Mountain Conqueror is a WordPress starter blog theme. 
 
 ### Installation process
 
@@ -40,6 +40,9 @@ The theme has a custom post type called "event" which is disabled by default. Ad
 ```
 define('DUMMY_EVENT', true);
 ```
+
+### Theme Options
+The theme uses WordPress's Customizer API to create the theme options. After activating the theme please go to **Appearance -> Customize -> Theme Options** to setup the heaader and footer necessary settings that are currently available.
 
 ### Changelog
 v1.0.0 - 11th October 2020
