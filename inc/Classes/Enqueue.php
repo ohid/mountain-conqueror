@@ -57,7 +57,7 @@ class Enqueue
         wp_enqueue_script(
             'mconqueror-js',
             get_template_directory_uri() . '/assets/js/build/main.js',
-            [],
+            ['jquery'],
             Setup::filemtime('/assets/js/build/main.js'),
             true
         );

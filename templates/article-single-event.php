@@ -8,8 +8,8 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 ?>
-<article <?php post_class(); ?>>
-    <?php printf('<h2 class="event-title"><a href="%s">%s</a></h2>', esc_url(get_the_permalink()), esc_html(get_the_title())); ?>
+<article <?php post_class(); ?>> 
+    <h2 class="event-title"><?php the_title(); ?></h2>
 
     <div class="event-information clearfix">
         <div class="event-details">

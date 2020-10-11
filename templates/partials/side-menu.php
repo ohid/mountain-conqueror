@@ -23,9 +23,9 @@ defined('ABSPATH') || exit;
             }
         ?>
 
-        <div class="mobile-menu-closer">
-            <span id="menu-closer">X</span>
-        </div>
+    </div>
+    <div class="mobile-menu-closer">
+        <span id="menu-closer">X</span>
     </div>
 </div>
 
