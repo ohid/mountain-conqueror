@@ -1,6 +1,11 @@
 .entry-content {
     padding-left: 15px;
 
+    .archive-title {
+        margin-bottom: 40px;
+        border-bottom: 3px dashed #000;
+    }
+
     article {
         padding-bottom: 20px;
         margin-bottom: 65px;

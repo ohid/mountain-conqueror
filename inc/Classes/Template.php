@@ -34,8 +34,14 @@ class Template
         }
     }
 
+    /**
+     * Markup for the header slogan
+     *
+     * @return void
+     */
     public static function headerSlogan()
     {
+        // Retrieve the values from the customizer api
         $slogan = get_theme_mod('header_slogan');
         $author = get_theme_mod('header_author');
 
@@ -45,6 +51,28 @@ class Template
 
         if ($author) {
             printf('<h4>%s</h4>', esc_html($author));
+        }
+    }
+
+    /**
+     * Generate the archive title
+     *
+     * @return void
+     */
+    public static function archiveTitle()
+    {
+        if (is_archive()) {
+            printf(
+                '<h1 class="archive-title">%1$s <em>%2$s</em></h1>', 
+                __('Showing archive for', 'mountain-conqueror'), 
+                get_the_archive_title()
+            );
+        } elseif (is_search()) {
+            printf(
+                '<h1 class="archive-title">%1$s <em>%2$s</em></h1>', 
+                __('Search results for:', 'mountain-conqueror'), 
+                get_search_query()
+            );
         }
     }
 
