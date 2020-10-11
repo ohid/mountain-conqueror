@@ -1,7 +1,7 @@
 <?php use MConqueror\Classes\Template;
 
 /**
- * The article parital template that display the posts
+ * The article event parital template that display the events
  * Included in index.php and single.php
  * 
  * @package mountain-conqueror

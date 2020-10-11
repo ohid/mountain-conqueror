@@ -1,3 +1,14 @@
+<?php
+/**
+ * The post meta partial template file
+ *
+ * @package mountain-conqueror
+ */
+
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
+?>
+
 <p class="post-meta">
     <?php do_action('mc_start_post_meta'); ?>
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * The side menu
+ * The side menu partial template file
  *
  * @package mountain-conqueror
  */

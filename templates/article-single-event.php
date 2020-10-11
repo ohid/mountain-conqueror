@@ -1,6 +1,6 @@
 <?php
 /**
- * The single event template
+ * The article single event template
  *
  * @package mountain-conqueror
  */

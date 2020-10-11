@@ -1,7 +1,7 @@
 <?php use MConqueror\Classes\Template;
 
 /**
- * The footer file of Mountain Conqueror theme
+ * The header file of Mountain Conqueror theme
  *
  * @package mountain-conqueror
  */

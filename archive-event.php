@@ -1,7 +1,7 @@
 <?php use MConqueror\Classes\Setup;
 
 /**
- * The main template file for Mauntain Conqueror theme.
+ * The archive event template file for Mauntain Conqueror theme.
  *
  * @package mountain-conqueror
  */
