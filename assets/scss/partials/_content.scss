@@ -115,9 +115,17 @@
         }
     }
 
-    .post-navigations a {
-        color: #9F3636
-    }
+    .post-navigations {
+        > div {
+            max-width: 50%;
+        }
+
+        a {
+            color: #9F3636;
+            word-wrap: break-word;
+        }
+    } 
+    
 
     @include sm {
         .mconqueror-pagination .page-numbers {

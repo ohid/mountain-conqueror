@@ -24,6 +24,12 @@ footer {
             padding-left: 30px;
         }
 
+        @include tablet-md {
+            .footer-column {
+                padding-left: 15px;
+            }
+        }
+
         .footer-copyright {
             margin-right: 35px;
         }
