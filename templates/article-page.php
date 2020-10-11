@@ -15,11 +15,6 @@ defined('ABSPATH') || exit;
         <h2 class="post-title"><?php the_title(); ?></h2>
 
         <?php the_content(); ?>
-
-        <?php 
-            // Include the post meta template
-            get_template_part('templates/partials/post', 'meta'); 
-        ?>
     </div>
     
     <?php 
