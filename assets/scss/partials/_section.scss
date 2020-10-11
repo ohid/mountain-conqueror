@@ -1,0 +1,20 @@
+/***
+==== Blog homepage /index.php styles
+***/
+section {
+    &.main {
+        margin: 95px 0 160px;
+    }
+
+    @include md {
+        &.main {
+            margin: 65px 0 130px;
+        }
+    }
+
+    @include sm {
+        &.main {
+            margin: 35px 0 100px;
+        }
+    }
+}
