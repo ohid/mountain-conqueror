@@ -63,14 +63,14 @@ class Template
     {
         if (is_archive()) {
             printf(
-                '<h1 class="archive-title">%1$s <em>%2$s</em></h1>', 
-                __('Showing archive for', 'mountain-conqueror'), 
+                '<h1 class="archive-title">%1$s <em>%2$s</em></h1>',
+                esc_html__('Showing archive for', 'mountain-conqueror'),
                 get_the_archive_title()
             );
         } elseif (is_search()) {
             printf(
-                '<h1 class="archive-title">%1$s <em>%2$s</em></h1>', 
-                __('Search results for:', 'mountain-conqueror'), 
+                '<h1 class="archive-title">%1$s <em>%2$s</em></h1>',
+                esc_html__('Search results for:', 'mountain-conqueror'),
                 get_search_query()
             );
         }
@@ -166,7 +166,6 @@ class Template
     public static function eventMeta(\WP_Post $post)
     {
         if (class_exists('MConqueror\Events\Model\Event')) {
-
             $event = Event::fromPost($post);
 
             printf(

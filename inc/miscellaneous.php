@@ -67,61 +67,62 @@ if (! function_exists('mconqueror_link_to_menu_editor')) {
  * Building Comments Lists
  *
  */
-function mconqueror_comments_list( $comment, $args, $depth ) {
-	if ( 'div' === $args['style'] ) {
-        $tag       = 'div';
+function mconqueror_comments_list($comment, $args, $depth)
+{
+    if ('div' === $args['style']) {
+        $tag = 'div';
         $add_below = 'comment';
     } else {
-        $tag       = 'li';
+        $tag = 'li';
         $add_below = 'div-comment';
     }?>
-    <<?php echo esc_html( $tag ) ; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php
-    if ( 'div' != $args['style'] ) { ?>
+    <<?php echo esc_html($tag) ; ?> <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?> id="comment-<?php comment_ID() ?>"><?php
+    if ('div' != $args['style']) { ?>
         <div id="div-comment-<?php comment_ID() ?>" class="single-comment"><?php
-	} ?>
-		<div class="user-small-card">
-		<div class="user-img">
-			<?php
-				if ( $args['avatar_size'] != 0 ) {
-					echo get_avatar( $comment, 50 );
-				}
-			?>
-		</div>
-		<div class="user-identity">
-			<h3 class="name"><?php esc_html( comment_author() ); ?></h3>
-			<p class="date"><?php echo esc_html( the_time( get_option('date_format') ) );?> <?php  esc_html( comment_time() ); ?></p>
-		</div>
-		</div>
-		<div class="comment-text">
-			<?php
-				if( $comment->comment_approved  == 0 ) {
-					esc_html_e('Your comment is awating for moderation.', 'mountain-conqueror');
-				} else {
-					comment_text();
-				}
-			?>
-		</div>
+    } ?>
+        <div class="user-small-card">
+            <div class="user-img">
+            <?php
+            if ($args['avatar_size'] != 0) {
+                echo get_avatar($comment, 50);
+            }
+            ?>
+            </div>
+        <div class="user-identity">
+        <h3 class="name"><?php esc_html(comment_author()); ?></h3>
+        <p class="date"><?php echo esc_html(the_time(get_option('date_format')));?> <?php  esc_html(comment_time()); ?></p>
+        </div>
+        </div>
+        <div class="comment-text">
+            <?php
+            if ($comment->comment_approved  == 0) {
+                esc_html_e('Your comment is awating for moderation.', 'mountain-conqueror');
+            } else {
+                comment_text();
+            }
+            ?>
+        </div>
 
-		<div class="comment-links">
-			<?php
-				if( get_edit_comment_link() ) :
-					esc_url( edit_comment_link( esc_html__('Edit', 'mountain-conqueror') ) );
-				endif;
-			?>
+        <div class="comment-links">
+        <?php
+        if (get_edit_comment_link()) {
+            esc_url(edit_comment_link(esc_html__('Edit', 'mountain-conqueror')));
+        }
+        ?>
 
-			<?php
-				comment_reply_link( array_merge( $args, array(
-					'reply_text' =>  esc_html__('Reply', 'mountain-conqueror'),
-					'after' => ' <span> </span>',
-					'depth' => $depth,
-					'max_depth' => $args['max_depth']
-				) ) );
-			?>
-		</div>
+            <?php
+                comment_reply_link(array_merge($args, [
+                    'reply_text' =>  esc_html__('Reply', 'mountain-conqueror'),
+                    'after' => ' <span> </span>',
+                    'depth' => $depth,
+                    'max_depth' => $args['max_depth'],
+                ]));
+            ?>
+        </div>
 
 
-		<?php
-    if ( 'div' != $args['style'] ) : ?>
-        </div><?php
-    endif;
+        <?php
+        if ('div' !== $args['style']) { ?>
+            </div><?php
+        }
 }
